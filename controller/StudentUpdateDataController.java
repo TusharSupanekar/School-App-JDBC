@@ -7,7 +7,7 @@ public class StudentUpdateDataController {
 	public static void main(String[] args) {
 		Student student=new Student();
 		StudentService studentService=new StudentService(); //we are sending student data to service class
-		Student s=studentService.updateStudent();
+		boolean s=studentService.updateStudent(1);
 		System.out.println(s);
 
 	}

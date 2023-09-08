@@ -15,12 +15,13 @@ public class StudentDao {
 	Connection connection=null;
 	
 	//To update student data
-	public  Student updateStudent() {
+	public boolean  updateStudent(int id) {
 		connection=helperClass.getConnection();
-		String sql="UPDATE student set name='tushar',email='tushar@mail.com' WHERE id=1";
+		String sql="UPDATE student set name='tushar',email='tushar@mail.com' WHERE id=?";
 		
 		try {
 			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
 			
 			preparedStatement.executeUpdate(sql);
 
@@ -35,9 +36,12 @@ public class StudentDao {
 				e.printStackTrace();
 			}
 		}
-		return null;
-
-		
+		if(id>0) {
+			return true;
+			
+		}else {
+			return false;
+		}
 	}
 	
 	//To get all data
@@ -98,8 +102,7 @@ public class StudentDao {
 			return true;
 		}else {
 			return false;
-		}
-		
+		}	
 	}
 	
 	//To Save a Student Data

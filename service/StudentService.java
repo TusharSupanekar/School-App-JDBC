@@ -19,8 +19,8 @@ public class StudentService {
 		Student s=studentDao.getStudent();
 		return s;
 	}
-	public Student updateStudent() {
-		Student s=studentDao.updateStudent();
+	public boolean updateStudent(int id) {
+		boolean s=studentDao.updateStudent(id);
 		return s;
 	}
 

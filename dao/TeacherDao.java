@@ -14,12 +14,13 @@ public class TeacherDao {
 	Connection connection=null;
 	
 	//To update teacher data
-		public  Teacher updateTeacher() {
+		public  boolean updateTeacher(int id) {
 			connection=helperClass.getConnection();
-			String sql="UPDATE student set name='john',email='john@mail.com' WHERE id=1";
+			String sql="UPDATE teacher set name='john',email='john@mail.com' WHERE id=?";
 			
 			try {
 				PreparedStatement preparedStatement=connection.prepareStatement(sql);
+				preparedStatement.setInt(1, id);
 				
 				preparedStatement.executeUpdate(sql);
 
@@ -34,7 +35,11 @@ public class TeacherDao {
 					e.printStackTrace();
 				}
 			}
-			return null;
+			if(id>0) {
+				return true;
+			}else {
+				return false;
+			}
 
 			
 		}
