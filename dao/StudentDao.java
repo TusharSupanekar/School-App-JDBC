@@ -45,14 +45,15 @@ public class StudentDao {
 	}
 	
 	//To get all data
-	public Student getStudent() {
+	public boolean getStudent(int id) {
 		
 		connection=helperClass.getConnection();
-		String sql="SELECT * FROM student";
+		String sql="SELECT * FROM student WHERE Id=?";
 		try {
 			//Create statement
-			PreparedStatement preparedstatement=connection.prepareStatement(sql);
-			ResultSet resultSet=preparedstatement.executeQuery(sql);
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1,id);
+			ResultSet resultSet=preparedStatement.executeQuery(sql);
 			while(resultSet.next()) {
 				System.out.println(resultSet.getInt(1));
 				System.out.println(resultSet.getString(2));
@@ -70,7 +71,11 @@ public class StudentDao {
 				e.printStackTrace();
 			}
 		}
-		return null;
+		if(id>0) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	//To Delete a student data
 	public boolean deleteStudentById(int id) {

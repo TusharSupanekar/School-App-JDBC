@@ -17,8 +17,8 @@ public class TeacherService {
 		return teacherDao.deleteTeacher(id);
 	}
 	
-	public Teacher getTeacher() {
-		Teacher t=teacherDao.getTeacher();
+	public boolean getTeacher(int id) {
+		boolean t=teacherDao.getTeacher(id);
 		return t;
 	}
 	public boolean updateTeacher(int id) {

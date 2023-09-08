@@ -9,7 +9,7 @@ public class TeacherGetDataController {
 	public static void main(String[] args) {
 		Teacher teacher=new Teacher();
 		TeacherService teacherService=new TeacherService(); //we are sending student data to service class
-		Teacher t=teacherService.getTeacher();
+		boolean t=teacherService.getTeacher(1);
 			System.out.println(t);
 	}
 

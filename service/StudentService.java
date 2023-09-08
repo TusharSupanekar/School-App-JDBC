@@ -15,8 +15,8 @@ public class StudentService {
 		return studentDao.deleteStudentById(id);
 	}
 	
-	public Student  getStudent() {
-		Student s=studentDao.getStudent();
+	public boolean  getStudent(int id) {
+		boolean s=studentDao.getStudent(id);
 		return s;
 	}
 	public boolean updateStudent(int id) {

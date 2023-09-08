@@ -45,13 +45,14 @@ public class TeacherDao {
 		}
 	
 	//To get teacher data
-	public Teacher getTeacher() {
+	public boolean getTeacher(int id) {
 		connection=helperClass.getConnection();
-		String sql="SELECT * FROM teacher";
+		String sql="SELECT * FROM teacher WHERE Id=?";
 		try {
 			//Create statement
-			PreparedStatement preparedstatement=connection.prepareStatement(sql);
-			ResultSet resultSet=preparedstatement.executeQuery(sql);
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			preparedStatement.setInt(1,id);
+			ResultSet resultSet=preparedStatement.executeQuery(sql);
 			while(resultSet.next()) {
 				System.out.println(resultSet.getInt(1));
 				System.out.println(resultSet.getString(2));
@@ -69,7 +70,11 @@ public class TeacherDao {
 				e.printStackTrace();
 			}
 		}
-		return null;
+		if(id>0) {
+			return true;
+		}else {
+			return false;
+		}
 		}
 	
 	
