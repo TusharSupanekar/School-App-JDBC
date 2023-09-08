@@ -1,6 +1,7 @@
 package com.school.service;
 
 import com.school.dao.TeacherDao;
+import com.school.dto.Student;
 import com.school.dto.Teacher;
 
 public class TeacherService {
@@ -15,6 +16,12 @@ public class TeacherService {
 	public boolean deleteTeacher(int id) {
 		return teacherDao.deleteTeacher(id);
 	}
+	
+	public Teacher getTeacher() {
+		Teacher t=teacherDao.getTeacher();
+		return t;
+	}
+
 
 	
 
