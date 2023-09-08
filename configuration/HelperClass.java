@@ -5,18 +5,19 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class HelperClass {
-	String url="jdbc:mysql://localhost:3306/school_jdbc";
-	String username="root";
-	String password="root";
-	
-	//To establish connection
-	
-	Connection connection=null;
+	String url = "jdbc:mysql://localhost:3306/school_jdbc";
+	String username = "root";
+	String password = "root";
+
+	// To establish connection
+
+	Connection connection = null;
+
 	public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection=DriverManager.getConnection(url, username, password);
-	
+			connection = DriverManager.getConnection(url, username, password);
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -24,6 +25,6 @@ public class HelperClass {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return connection;	
+		return connection;
 	}
 }
