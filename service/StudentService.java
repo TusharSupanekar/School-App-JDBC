@@ -19,5 +19,10 @@ public class StudentService {
 		Student s=studentDao.getStudent();
 		return s;
 	}
+	public Student updateStudent() {
+		Student s=studentDao.updateStudent();
+		return s;
+	}
+
 
 }

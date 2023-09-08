@@ -6,11 +6,38 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.school.configuration.HelperClass;
+import com.school.dto.Student;
 import com.school.dto.Teacher;
 
 public class TeacherDao {
 	HelperClass helperClass= new HelperClass();
 	Connection connection=null;
+	
+	//To update teacher data
+		public  Teacher updateTeacher() {
+			connection=helperClass.getConnection();
+			String sql="UPDATE student set name='john',email='john@mail.com' WHERE id=1";
+			
+			try {
+				PreparedStatement preparedStatement=connection.prepareStatement(sql);
+				
+				preparedStatement.executeUpdate(sql);
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			return null;
+
+			
+		}
 	
 	//To get teacher data
 	public Teacher getTeacher() {

@@ -14,6 +14,32 @@ public class StudentDao {
 	HelperClass helperClass=new HelperClass();
 	Connection connection=null;
 	
+	//To update student data
+	public  Student updateStudent() {
+		connection=helperClass.getConnection();
+		String sql="UPDATE student set name='tushar',email='tushar@mail.com' WHERE id=1";
+		
+		try {
+			PreparedStatement preparedStatement=connection.prepareStatement(sql);
+			
+			preparedStatement.executeUpdate(sql);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null;
+
+		
+	}
+	
 	//To get all data
 	public Student getStudent() {
 		

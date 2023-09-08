@@ -21,6 +21,10 @@ public class TeacherService {
 		Teacher t=teacherDao.getTeacher();
 		return t;
 	}
+	public Teacher updateTeacher() {
+		Teacher t=teacherDao.updateTeacher();
+		return t;
+	}
 
 
 	
