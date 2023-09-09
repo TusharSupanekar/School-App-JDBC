@@ -20,9 +20,11 @@ public class StudentDao {
 		String sql = "UPDATE student set name='tushar',email='tushar@mail.com' WHERE id=?";
 
 		try {
+			// create statement
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			// pass value to delimiters
 			preparedStatement.setInt(1, id);
-
+			// Execute statement
 			preparedStatement.executeUpdate(sql);
 
 		} catch (SQLException e) {
